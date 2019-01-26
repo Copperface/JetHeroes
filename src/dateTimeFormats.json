@@ -1,0 +1,7 @@
+{
+    "en-US": {
+        "short": {
+            "year": "numeric", "month": "long", "day": "numeric"
+        }
+    }
+}

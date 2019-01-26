@@ -1,0 +1,30 @@
+{
+    "en": {
+        "message": {
+            "loading": "Loading...",
+            "empty": "Sorry we don't have information about this hero",
+            "gone": "Looks like you saw all the heroes.",
+            "error": "Sorry something went wrong. Try to reload page. {err}",
+            "responceCode": "Responce code: {code} "
+        },
+
+        "buttonText": {
+            "loading": "Loading...",
+            "show": "SHOW MORE"
+        },
+
+        "heroItem": {
+            "issues": "{num} issues"
+        },
+
+        "heroCard": {
+            "realName": "Real name:",
+            "publisher": "Publisher:",
+            "gender": "Gender:",
+            "female": "Female",
+            "male": "Male",
+            "updated": "Updated:"
+        },
+        "copyright": "2018 JetStyle"
+    }
+}
