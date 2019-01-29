@@ -1,5 +1,5 @@
 <template>
-    <div class="central-message"> {{ message }} </div>
+    <div class="central-message"> {{ message }}</div>
 </template>
 
 
@@ -22,5 +22,5 @@
         font-size: 24px;
         text-align: center;
     }
-    
+
 </style>

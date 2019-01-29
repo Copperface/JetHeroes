@@ -11,13 +11,13 @@
         },
         methods: {
             //Загрузить еще элементы
-            loadMoreItems: function() {
+            loadMoreItems: function () {
                 if (!this.loadingData) this.$emit('loadMoreItems');
             }
         },
         computed: {
             //Вычисление надписи на кнопке
-            buttonText: function() {
+            buttonText: function () {
                 return (this.requestStatus == 'PENDING') ? this.$t('buttonText.loading') : this.$t('buttonText.show');
             }
         }

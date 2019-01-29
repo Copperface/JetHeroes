@@ -20,10 +20,10 @@
         min-width: 320px;
         min-height: 40px;
         box-sizing: border-box;
-        
+
         margin: 0 auto;
         padding: 0 20px;
-        
+
         display: flex;
         align-items: center;
         justify-content: flex-end;

@@ -1,13 +1,16 @@
 <template>
     <div class="hero-gallery-item">
-        <a :href="'/heroinfo?id=' + heroItem.id" class="hero-gallery-item__link">
+        <router-link :to="'/hero_card/' + heroItem.id" class="hero-gallery-item__link">
             <div class="hero-gallery-item__portrait"><img :src="heroItem.image.medium_url" :alt="heroItem.name"></div>
             <div class="hero-gallery-item__info">
                 <div class="hero-gallery-item__name">{{ heroItem.name }}</div>
-                <div class="hero-gallery-item__issues">{{ $t('heroItem.issues', {num: heroItem.count_of_issue_appearances}) }}</div>
+                <div class="hero-gallery-item__issues">{{ $t('heroItem.issues', {num:
+                    heroItem.count_of_issue_appearances}) }}
+                </div>
                 <div class="hero-gallery-item__publisher">{{ heroItem.publisher.name }}</div>
             </div>
-        </a>
+
+        </router-link>
     </div>
 </template>
 

@@ -1,8 +1,8 @@
 const url = 'http://127.0.0.1:5000/api/';
 
 const commonQueryParams = {
-  api_key: "ccc82e529aa4b43db868136af57c3276436a827b",
-  format: "json",
+    api_key: "ccc82e529aa4b43db868136af57c3276436a827b",
+    format: "json",
 };
 
 const itemsDataParams = {
@@ -20,16 +20,16 @@ const cardDataParams = {
     }
 }
 
-function requestUrl (customParams) {
+function requestUrl(customParams) {
     let searchParams = new URLSearchParams();
     for (let param in commonQueryParams) {
-        searchParams.append(param,commonQueryParams[param]);        
+        searchParams.append(param, commonQueryParams[param]);
     }
-    
+
     for (let param in customParams.queryParams) {
-        searchParams.append(param,customParams.queryParams[param]);        
+        searchParams.append(param, customParams.queryParams[param]);
     }
-    
+
     return `${url}${customParams.method}?${searchParams.toString()}`;
 }
 

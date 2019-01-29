@@ -1,21 +1,26 @@
 <template>
     <!-- Блок информации о персонаже -->
     <div class="hero-card">
-        <CentralMessage :message="centralMessage" v-if="centralMessage" />
+        <CentralMessage :message="centralMessage" v-if="centralMessage"/>
 
         <div class="hero-card__wrapper" v-else>
             <div class="hero-card__portrait">
                 <div class="hero-card__portrait-inner">
-                    <div class="hero-card__portrait-content"><img :src="heroData.image.super_url" :alt="heroData.name"></div>
+                    <div class="hero-card__portrait-content"><img :src="heroData.image.super_url" :alt="heroData.name">
+                    </div>
                 </div>
             </div>
             <div class="hero-card__block">
                 <div class="hero-card__name">{{ heroData.name }}</div>
                 <div class="hero-card__records">
-                    <span class="hero-card__label hero-card__label-real-name">{{ $t("heroCard.realName") }}</span><span class="hero-card__info hero-card__info-real-name">{{ heroData.real_name }}</span><br>
-                    <span class="hero-card__label hero-card__label-publisher">{{ $t("heroCard.publisher") }}</span><span class="hero-card__info hero-card__info-publisher">{{ heroData.publisher.name}}</span><br>
-                    <span class="hero-card__label hero-card__label-gender">{{ $t("heroCard.gender") }}</span><span class="hero-card__info hero-card__info-gender">{{ heroData.gender-1 ? $t("heroCard.female"):$t("heroCard.male") }}</span><br>
-                    <span class="hero-card__label hero-card__label-updated">Updated:</span><span class="hero-card__info hero-card__info-updated">{{ $d(new Date(heroData.date_last_updated),'short') }}</span><br>
+                    <span class="hero-card__label hero-card__label-real-name">{{ $t("heroCard.realName") }}</span>
+                    <span class="hero-card__info hero-card__info-real-name">{{ heroData.real_name }}</span><br>
+                    <span class="hero-card__label hero-card__label-publisher">{{ $t("heroCard.publisher") }}</span>
+                    <span class="hero-card__info hero-card__info-publisher">{{ heroData.publisher.name}}</span><br>
+                    <span class="hero-card__label hero-card__label-gender">{{ $t("heroCard.gender") }}</span>
+                    <span class="hero-card__info hero-card__info-gender">{{ heroData.gender-1 ? $t("heroCard.female"):$t("heroCard.male") }}</span><br>
+                    <span class="hero-card__label hero-card__label-updated">Updated:</span>
+                    <span class="hero-card__info hero-card__info-updated">{{ $d(new Date(heroData.date_last_updated),'short') }}</span><br>
                 </div>
                 <div class="hero-card__description">{{ heroData.deck }}</div>
             </div>
@@ -27,18 +32,15 @@
 <script>
     import {
         getCardData
-    } from '../../api.js';
-    import {
-        parseUrlQuery
-    } from '../../methods.js';
-    import CentralMessage from '../CentralMessage.vue'
+    } from '../api.js';
+    import CentralMessage from '../components/CentralMessage.vue'
 
     export default {
         name: 'HeroCard',
         components: {
             CentralMessage
         },
-        data: function() {
+        data: function () {
             return {
                 heroData: {},
                 requestStatus: 'PENDING',
@@ -46,19 +48,19 @@
             }
         },
         computed: {
-            centralMessage: function() {
-                if (this.requestStatus == 'PENDING') {
+            centralMessage: function () {
+                if (this.requestStatus === 'PENDING') {
                     return this.$t("message.loading");
-                } else if ((this.requestStatus == 'SUCCESS') && !this.heroData) {
+                } else if ((this.requestStatus === 'SUCCESS') && !this.heroData) {
                     return this.$t("message.empty");
-                } else if (this.requestStatus == 'ERROR') {
+                } else if (this.requestStatus === 'ERROR') {
                     return this.$t("message.error", {err: this.errorMessage});
                 }
                 return '';
             }
         },
-        created: function() {
-            let id = parseUrlQuery().id;
+        created: function () {
+            let id = this.$route.params.id;
             getCardData(id)
                 .then(r => {
                     //Ответ не 200 - заканчиваем 
@@ -90,7 +92,7 @@
         flex-grow: 1;
         flex-shrink: 0;
     }
-    
+
     .hero-card__wrapper {
         max-width: 1080px;
         min-width: 320px;

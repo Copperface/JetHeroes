@@ -1,13 +1,15 @@
 <template>
     <header class="main-header">
         <div class="main-header__wrapper">
-            <div class="main-header__logo"><img src="img/logo.svg" alt="site logo"></div>
+            <div class="main-header__logo">
+                <router-link to="/"><img src="img/logo.svg" alt="site logo"></router-link>
+            </div>
         </div>
     </header>
 </template>
 
 <style scoped>
-    
+
     .main-header {
         width: 100%;
         background-color: #52607F;
@@ -19,11 +21,11 @@
         min-width: 320px;
         min-height: 40px;
         box-sizing: border-box;
-        
+
         margin: 0 auto;
         padding: 0 20px;
-        
-        position: relative;        
+
+        position: relative;
     }
 
     .main-header__logo {

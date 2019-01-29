@@ -2,7 +2,7 @@ const express = require('express'),
     request = require('request');
 const PORT = process.env.PORT || 5000;
 
-var app = express();  
+var app = express();
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -10,8 +10,8 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use('/api', function(req, res) {
-  req.pipe(request("https://comicvine.gamespot.com/api" + req.url)).pipe(res);
+app.use('/api', function (req, res) {
+    req.pipe(request("https://comicvine.gamespot.com/api" + req.url)).pipe(res);
 });
 
-let server = app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+let server = app.listen(PORT, () => console.log(`Listening on ${PORT}`));

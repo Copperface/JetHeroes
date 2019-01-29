@@ -1,21 +1,21 @@
 <template>
     <div class="hero-gallery">
         <div class="hero-gallery__wrapper">
-            <HeroesGalleryItem v-for="heroItem in heroItems" :key="heroItem.id" :heroItem="heroItem" />
-            <CentralMessage v-if="centralMessage" :message="centralMessage" />
+            <HeroesGalleryItem v-for="heroItem in heroItems" :key="heroItem.id" :heroItem="heroItem"/>
+            <CentralMessage v-if="centralMessage" :message="centralMessage"/>
         </div>
-        <LoadMoreButton v-on:loadMoreItems="loadMoreItems" :requestStatus="requestStatus" v-show="!isItemsGone" />
+        <LoadMoreButton v-on:loadMoreItems="loadMoreItems" :requestStatus="requestStatus" v-show="!isItemsGone"/>
     </div>
 </template>
 
 
 <script>
-    import HeroesGalleryItem from './HeroesGalleryItem.vue';
-    import LoadMoreButton from './LoadMoreButton.vue';
-    import CentralMessage from '../CentralMessage.vue';
+    import HeroesGalleryItem from '../components/HeroesGallery/HeroesGalleryItem.vue';
+    import LoadMoreButton from '../components/HeroesGallery/LoadMoreButton.vue';
+    import CentralMessage from '../components/CentralMessage.vue';
     import {
         getItemsData
-    } from '../../api.js';
+    } from '../api.js';
 
     export default {
         name: 'HeroesGallery',
@@ -24,7 +24,7 @@
             LoadMoreButton,
             CentralMessage
         },
-        data: function() {
+        data: function () {
             return {
                 heroItems: [],
                 offset: 0,
@@ -34,7 +34,7 @@
             }
         },
         computed: {
-            centralMessage: function() {
+            centralMessage: function () {
                 if (this.isItemsGone) {
                     return this.$t('message.gone');
                 } else if (this.requestStatus == 'ERROR') {
@@ -47,7 +47,7 @@
         },
         methods: {
             //Обработка запроса к API
-            loadMoreItems: function() {
+            loadMoreItems: function () {
                 this.requestStatus = 'PENDING';
                 getItemsData(this.offset)
                     .then(r => {
@@ -79,7 +79,7 @@
                     })
             }
         },
-        created: function() {
+        created: function () {
             this.loadMoreItems();
         }
     }

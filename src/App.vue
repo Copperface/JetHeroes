@@ -1,30 +1,26 @@
 <template>
     <div id="app">
-        <MainHeader />
-        <HeroCard />
-        <MainFooter />
+        <MainHeader/>
+        <router-view></router-view>
+        <MainFooter/>
     </div>
 </template>
 
 <script>
-    import MainHeader from '../../components/MainHeader.vue'
-    import HeroCard from '../../components/hero_info/HeroCard.vue'
-    import MainFooter from '../../components/MainFooter.vue'
-
+    import MainHeader from './components/MainHeader.vue'
+    import MainFooter from './components/MainFooter.vue'
 
     export default {
         name: 'app',
         components: {
             MainHeader,
-            HeroCard,
             MainFooter
         }
     }
-
 </script>
 
 <style>
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
 
     html, body {
         margin: 0;
