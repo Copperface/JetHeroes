@@ -124,13 +124,20 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
 
         background-color: #C4C4C4;
     }
 
     .hero-card__portrait img {
-        max-height: 100%;
         max-width: 100%;
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
     }
 
     .hero-card__block {

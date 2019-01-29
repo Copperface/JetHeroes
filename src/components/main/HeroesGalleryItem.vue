@@ -37,16 +37,21 @@
         width: 100%;
         height: 231px;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        position: relative;
 
         background-color: #C4C4C4;
+        overflow: hidden;
     }
 
     .hero-gallery-item__portrait img {
-        max-height: 100%;
         max-width: 100%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
     }
 
     .hero-gallery-item__name {
