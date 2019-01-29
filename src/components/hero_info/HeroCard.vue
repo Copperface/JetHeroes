@@ -86,6 +86,11 @@
 
 
 <style>
+    .hero-card {
+        flex-grow: 1;
+        flex-shrink: 0;
+    }
+    
     .hero-card__wrapper {
         max-width: 1080px;
         min-width: 320px;

@@ -11,7 +11,8 @@
 <style scoped>
     .main-footer {
         width: 100%;
-        margin-top: 191px;
+        margin-top: 100px;
+        flex-shrink: 0;
     }
 
     .main-footer__wrapper {

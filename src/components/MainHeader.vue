@@ -11,6 +11,7 @@
     .main-header {
         width: 100%;
         background-color: #52607F;
+        flex-shrink: 0;
     }
 
     .main-header__wrapper {

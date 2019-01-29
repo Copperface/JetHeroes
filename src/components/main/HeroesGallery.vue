@@ -89,6 +89,8 @@
 <style scoped>
     .hero-gallery {
         margin-top: 30px;
+        flex-grow: 1;
+        flex-shrink: 0;
     }
 
     .hero-gallery__wrapper {
