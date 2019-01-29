@@ -41,6 +41,6 @@ export function getItemsData(offset) {
 
 export function getCardData(id) {
     let requestParams = cardDataParams;
-    requestParams.queryParams.id = id;
+    requestParams.queryParams.filter = 'id:' + id;
     return fetch(requestUrl(requestParams));
 }
